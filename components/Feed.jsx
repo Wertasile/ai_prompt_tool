@@ -16,6 +16,8 @@ const Feed = () => {
     const response = await fetch("/api/prompt");
     const data = await response.json();
 
+    console.table(data)
+
     setAllPosts(data);
   };
 
@@ -24,7 +26,7 @@ const Feed = () => {
   }, []);
 
   const filterPrompts = (searchtext) => {
-    const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
+    const regex = new RegExp(searchtext, "i"); // 'i' flag for case- csensitive search
     return allPosts.filter(
       (item) =>
         regex.test(item.creator.username) ||
